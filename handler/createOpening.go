@@ -10,8 +10,6 @@ import (
 func CreateOpeningHandler(ctx *gin.Context) {
 	request := CreateOpeningRequest{}
 
-	ctx.BindJSON(&request)
-
 	if err := ctx.BindJSON(&request); err != nil {
 		logger.Errorf("Error binding JSON: %v", err.Error())
 		SendError(ctx, http.StatusBadRequest, err.Error())
