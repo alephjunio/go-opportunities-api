@@ -17,7 +17,6 @@ type Opening struct {
 }
 
 type OpeningResponse struct {
-	gorm.Model
 	ID        uint      `json:"id"`
 	CreatedAt time.Time `json:"createdAt"`
 	UpdatedAt time.Time `json:"updatedAt"`
@@ -25,7 +24,7 @@ type OpeningResponse struct {
 	Role      string    `json:"role"`
 	Company   string    `json:"company"`
 	Location  string    `json:"location"`
-	Remote    *bool     `json:"remote"`
+	Remote    bool      `json:"remote"`
 	Link      string    `json:"link"`
 	Salary    int64     `json:"salary"`
 }

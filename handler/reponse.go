@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/alephjunio/go-opportunities-api/schemas"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,4 +23,13 @@ func SendSucess(ctx *gin.Context, op string, data interface{}) {
 		"data":    data,
 		"code":    http.StatusOK,
 	})
+}
+
+type ErrorResponse struct {
+	Message   string `json:"message"`
+	ErrorCode string `json:"errorCode"`
+}
+type CreateOpeningResponse struct {
+	Message string                  `json:"message"`
+	Data    schemas.OpeningResponse `json:"data"`
 }
