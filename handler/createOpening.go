@@ -12,6 +12,12 @@ func CreateOpeningHandler(ctx *gin.Context) {
 
 	ctx.BindJSON(&request)
 
+	if err := ctx.BindJSON(&request); err != nil {
+		logger.Errorf("Error binding JSON: %v", err.Error())
+		SendError(ctx, http.StatusBadRequest, err.Error())
+		return
+	}
+
 	err := request.Validate()
 	if err != nil {
 		logger.Errorf("Validation error creating opening: %v", err.Error())
