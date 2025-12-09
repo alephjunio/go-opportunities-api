@@ -8,7 +8,7 @@ import (
 )
 
 func SendError(ctx *gin.Context, code int, menssage string) {
-	ctx.Header("content-type", "application/json")
+	ctx.Header("Content-type", "application/json")
 	ctx.JSON(code, gin.H{
 		"message": menssage,
 		"code":    code,
@@ -16,7 +16,7 @@ func SendError(ctx *gin.Context, code int, menssage string) {
 }
 
 func SendSucess(ctx *gin.Context, op string, data interface{}) {
-	ctx.Header("content-type", "application/json")
+	ctx.Header("Content-type", "application/json")
 	ctx.JSON(http.StatusOK, gin.H{
 		"message": fmt.Sprintf("operation from handler: %s success", op),
 		"data":    data,
